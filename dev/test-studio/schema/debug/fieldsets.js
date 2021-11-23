@@ -1,9 +1,17 @@
-import {BlockquoteIcon} from '@sanity/icons'
+import {BlockquoteIcon, CogIcon} from '@sanity/icons'
 
 export default {
   name: 'fieldsetsTest',
   type: 'document',
   title: 'Fieldsets test',
+  groups: [
+    {
+      name: 'settings',
+      title: 'Settings',
+      isDefault: true,
+      icon: CogIcon,
+    },
+  ],
   icon: BlockquoteIcon,
   preview: {
     select: {
@@ -34,14 +42,16 @@ export default {
       name: 'x',
       title: 'X position',
       fieldset: 'settings',
+      group: 'settings',
       validation: (Rule) => Rule.required(),
     },
     {type: 'number', name: 'y', title: 'Y position', fieldset: 'settings'},
     {type: 'number', name: 'width', title: 'Width', fieldset: 'settings'},
-    {type: 'number', name: 'height', title: 'Height', fieldset: 'settings'},
+    {type: 'number', name: 'height', title: 'Height', fieldset: 'settings', group: ['settings']},
     {
       name: 'person',
       type: 'object',
+      group: ['settings'],
       fieldsets: [
         {
           name: 'social',
@@ -93,8 +103,21 @@ export default {
       ],
     },
     {
+      name: 'settingsName',
+      title: 'Settings ',
+      type: 'string',
+      group: ['settings'],
+    },
+    {
+      name: 'settingsBoolean',
+      title: 'Settings Boolean',
+      type: 'boolean',
+      group: ['settings'],
+    },
+    {
       name: 'recursive',
       title: 'This field is of type objectsTest',
+      description: 'Recursive',
       type: 'objectsTest',
       fieldset: 'recursive',
     },
