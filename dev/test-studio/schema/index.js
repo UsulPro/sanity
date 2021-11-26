@@ -83,6 +83,7 @@ import mux from './externalPlugins/mux'
 import book from './book'
 import author from './author'
 import species from './species'
+import fieldGroupsDefault from './debug/fieldGroupsDefault'
 
 export default createSchema({
   name: 'test-examples',
@@ -168,5 +169,6 @@ export default createSchema({
     validationArraySuperType,
     withDocumentTestSchemaType,
     fieldGroups,
+    fieldGroupsDefault,
   ]),
 })

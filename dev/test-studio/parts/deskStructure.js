@@ -84,6 +84,7 @@ const DEBUG_INPUT_TYPES = [
   'validationTest',
   'withDocumentTest',
   'fieldGroups',
+  'fieldGroupsDefault',
 ]
 
 const EXTERNAL_PLUGIN_INPUT_TYPES = ['markdownTest', 'muxVideoPost']
