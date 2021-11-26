@@ -25,8 +25,13 @@ export function ValidationMenu(props: ValidationMenuProps) {
     [validationMarkers]
   )
 
-  const validationWarningwarnings = useMemo(
+  const validationWarningMarkers = useMemo(
     () => validationMarkers.filter((marker) => marker.level === 'warning'),
+    [validationMarkers]
+  )
+
+  const validationInfoMarkers = useMemo(
+    () => validationMarkers.filter((marker) => marker.level === 'info'),
     [validationMarkers]
   )
 
@@ -34,7 +39,11 @@ export function ValidationMenu(props: ValidationMenuProps) {
 
   const handleClose = useCallback(() => setOpen(false), [setOpen])
 
-  if (validationErrorMarkers.length === 0 && validationWarningwarnings.length === 0) {
+  if (
+    validationErrorMarkers.length === 0 &&
+    validationWarningMarkers.length === 0 &&
+    validationInfoMarkers.length === 0
+  ) {
     return null
   }
 
